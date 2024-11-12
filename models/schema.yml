@@ -1,13 +1,51 @@
-version: 2
-
+# Définition des sources de données
 sources:
-  - name: gz_raw_data    
-    tables: 
-      - name: navire_gz_brut
-        description: données de transport de greenweez
-      - name: produit_brut_gz
-        description: données de produits brutes de greenweez
-      - name: ventes_brutes_gz
-        description: données de ventes de greenweez
+  - name: gz_raw_data  # Source de données nommée "gz_raw_data" représentant des données brutes de Greenweez
 
-    
+    # Définition des tables dans la source gz_raw_data
+    tables:
+      - name: navire_gz_brut  # Table pour les données de transport de Greenweez
+        description: données de transport de greenweez
+        
+        # Colonnes de la table navire_gz_brut
+        columns:
+          - name: orders_id
+            description: id de la commande     
+            tests:
+              - unique      # verifie l'unicité de la clé
+              - not_null         # verifie s'il n'y a pas de valeur null
+          - name: shipping_fee
+            description: Frais d'expédition associés à la commande
+          - name: logcost
+            description: Coût logistique
+          - name: ship_cost 
+            description: Coût total du transport
+
+      - name: produit_brut_gz   # Table pour les données de produits brutes de Greenweez
+        description: données de produits brutes de greenweez
+        
+        # Colonnes de la table produit_brut_gz
+        columns:
+          - name: products_id 
+            description: ID du produit
+            tests:
+              - unique     # verifie l'unicité de la clé
+              - not_null         # verifie s'il n'y a pas de valeur null
+          - name: purchase_price 
+            description: Prix d'achat du produit
+
+      - name: ventes_brutes_gz 
+        description: données de ventes de greenweez
+        
+        # Colonnes de la table ventes_brutes_gz
+        columns:
+          - name: date_date
+            description: Date de la vente
+          - name: orders_id
+            description: ID de la commande associée à la vente
+          - name: pdt_id 
+            description: ID du produit vendu
+          - name: revenue 
+            description: Chiffre d'affaires généré par la vente
+          - name: quantity
+            description: Quantité de produit vendue
