@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: gz_raw_data    
+    tables: 
+      - name: navire_gz_brut
+        description: données de transport de greenweez
+      - name: produit_brut_gz
+        description: données de produits brutes de greenweez
+      - name: ventes_brutes_gz
+        description: données de ventes de greenweez
+
+    
