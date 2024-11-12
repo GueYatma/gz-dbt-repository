@@ -41,6 +41,11 @@ operational_margin_calc as (
 select
     orders_id,
     date_date,
+    revenue,
+    quantity,
+    margin,                -- Assurez-vous que `margin` est inclus ici
     operational_margin,
-    quantity
+    purchase_cost,
+    shipping_fee,
+    logcost
 from operational_margin_calc
