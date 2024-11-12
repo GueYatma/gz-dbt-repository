@@ -36,7 +36,7 @@ sources:
 
       - name: ventes_brutes_gz 
         description: données de ventes de greenweez
-        
+
         # Colonnes de la table ventes_brutes_gz
         columns:
           - name: date_date
