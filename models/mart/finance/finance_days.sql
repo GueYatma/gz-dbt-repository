@@ -1,3 +1,4 @@
+
 with orders_data as (
     select 
         date_date,
@@ -26,3 +27,5 @@ select
 from orders_data
 group by date_date
 order by date_date
+
+
